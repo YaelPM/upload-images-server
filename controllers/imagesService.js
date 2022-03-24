@@ -1,17 +1,16 @@
 const multer = require('multer')
-const path= require('path')
+const path = require('path')
 
-const diskStorage = multer.diskStorage({
+const diskstorage = multer.diskStorage({
     destination: path.join(__dirname, '../images'),
     filename: (req, file, cb) => {
-        cb(null, Date.now() + '-' + file.originalname)
+        cb(null, 'WebUpload-' + file.originalname)
     }
-})
+});
 
 const fileUpload = multer({
-    storage: diskStorage
-}).single('image')
-
+    storage: diskstorage
+}).array('images')
 
 module.exports = {
     fileUpload
