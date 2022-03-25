@@ -2,9 +2,9 @@ const mysql = require('mysql');
 
 const config = {
     host : 'localhost',
-    user : 'express',
-    database: 'saveimagesback',
-    password: 'express',
+    user : 'user.bd',
+    database: 'imageuploadservice',
+    password: '12345',
 };
 
 const conn = mysql.createConnection(config);

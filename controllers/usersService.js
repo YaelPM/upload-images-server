@@ -26,6 +26,7 @@ const login = (req, res) => {
             if (bcrypt.compareSync(password, data.password)) {
                 res.send({
                     status: true,
+                    data: data.iduser,
                     message: 'Contraseña correcta',
                 })
             } else {
