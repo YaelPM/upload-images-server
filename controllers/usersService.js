@@ -22,11 +22,12 @@ const login = (req, res) => {
     let login = req.body.login
     let password = req.body.password
     userDAO.findByUsername(login, (data) => {
+        console.log(data.iduser)
         if (data) {
             if (bcrypt.compareSync(password, data.password)) {
                 res.send({
                     status: true,
-                    data: data.iduser,
+                    data: data,
                     message: 'Contraseña correcta',
                 })
             } else {
