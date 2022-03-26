@@ -1,4 +1,6 @@
 const bd = require('../configMysql')
+const path = require('path')
+const fs = require('fs')
 
 module.exports = {
     insertImage: (image, callback) => {
@@ -13,10 +15,15 @@ module.exports = {
         })
     },
 
-    getImages: () => {
-        let sql = 'SELECT * FROM images'
-        bd.query(sql, (err, data) => {
-            console.log('se inserto')
+    getImages: (userid, callback) => {
+        let sql = 'SELECT * FROM images WHERE userId= ?'
+        bd.query(sql, userid, (err, data) => {
+            if (err) throw err
+
+            if (data.length > 0)
+                callback(data)
+            else
+                callback(null)
         })
     },
 }
