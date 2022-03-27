@@ -1,5 +1,5 @@
-var express = require('express');
-var router = express.Router();
+var express = require('express')
+var router = express.Router()
 const usersService = require('../controllers/usersService')
 const configuration = require('../ConfigServer')
 const jwt = require('jsonwebtoken')

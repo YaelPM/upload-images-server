@@ -1,6 +1,4 @@
 const bd = require('../configMysql')
-const path = require('path')
-const fs = require('fs')
 
 module.exports = {
     insertImage: (image, callback) => {
